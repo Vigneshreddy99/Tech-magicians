@@ -1,154 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Walls</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #2c3e50, #4ca1af);
-            color: white;
-            text-align: center;
-        }
-        .container {
-            padding: 50px;
-        }
-        h1 {
-            color: #ff6680;
-        }
-        .image-section img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin-top: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .eink-temp-container {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-top: 30px;
-        }
-        .eink-section, .temperature-section, .calendar-section {
-            width: 30%;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-        }
-        .eink-display, .temperature-display-box, .calendar-display {
-            width: 200px;
-            height: 100px;
-            background: white;
-            margin: 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: black;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        .color-options button {
-            margin: 5px;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .toggle-btn {
-            padding: 10px 20px;
-            background: #ff6680;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>SMART WALLS</h1>
-        <div class="image-section">
-            <img src="image.png" alt="Smart Living Space">
-        </div>
-        <div class="eink-temp-container">
-            <div class="eink-section">
-                <h2>E-Ink Display</h2>
-                <div class="eink-display" id="einkDisplay">E-Ink Display</div>
-                <button class="toggle-btn" onclick="toggleEInk()">Turn Off</button>
-                <h3>Select Color:</h3>
-                <div class="color-options">
-                    <button style="background: black; color: white;" onclick="changeColor('black')">Black</button>
-                    <button style="background: gray; color: white;" onclick="changeColor('gray')">Gray</button>
-                    <button style="background: white; color: black;" onclick="changeColor('white')">White</button>
-                    <button style="background: blue; color: white;" onclick="changeColor('blue')">Blue</button>
-                    <button style="background: red; color: white;" onclick="changeColor('red')">Red</button>
-                </div>
-            </div>
-            <div class="temperature-section">
-                <h2>Temperature Display</h2>
-                <div class="temperature-display-box" id="temperatureDisplay">Temperature Display</div>
-                <button class="toggle-btn" onclick="toggleTemperature()">Turn Off</button>
-                <p class="temperature-display" id="temperature">Loading...</p>
-            </div>
-            <div class="calendar-section">
-                <h2>Calendar</h2>
-                <div class="calendar-display" id="calendarDisplay">Calendar</div>
-                <button class="toggle-btn" onclick="toggleCalendar()">Turn Off</button>
-            </div>
-        </div>
-    </div>
-    <script>
-        function toggleEInk() {
-            let display = document.getElementById('einkDisplay');
-            let button = document.querySelector('.eink-section .toggle-btn');
-            if (display.style.background === 'white') {
-                display.style.background = 'black';
-                display.style.color = 'white';
-                button.textContent = 'Turn On';
-            } else {
-                display.style.background = 'white';
-                display.style.color = 'black';
-                button.textContent = 'Turn Off';
-            }
-        }
-        function changeColor(color) {
-            let display = document.getElementById('einkDisplay');
-            display.style.background = color;
-            display.style.color = color === 'white' ? 'black' : 'white';
-        }
-        function updateTemperature() {
-            let tempC = (Math.random() * 15 + 20).toFixed(1);
-            let tempF = (tempC * 9/5 + 32).toFixed(1);
-            document.getElementById('temperature').textContent = `${tempC}°C / ${tempF}°F`;
-        }
-        function toggleTemperature() {
-            let display = document.getElementById('temperatureDisplay');
-            let button = document.querySelector('.temperature-section .toggle-btn');
-            if (display.style.display === 'none') {
-                display.style.display = 'block';
-                button.textContent = 'Turn Off';
-            } else {
-                display.style.display = 'none';
-                button.textContent = 'Turn On';
-            }
-        }
-        function toggleCalendar() {
-            let display = document.getElementById('calendarDisplay');
-            let button = document.querySelector('.calendar-section .toggle-btn');
-            if (display.style.display === 'none') {
-                display.style.display = 'block';
-                button.textContent = 'Turn Off';
-            } else {
-                display.style.display = 'none';
-                button.textContent = 'Turn On';
-            }
-        }
-        setInterval(updateTemperature, 3000);
-        updateTemperature();
-    </script>
-</body>
-</html>
+# Adaptive Smart Walls – The Future of Smart Living
+
+## Overview
+Adaptive Smart Walls are intelligent surfaces designed to change color, texture, and functionality in response to environmental inputs. By integrating IoT, AI, and smart materials, these walls enhance user experience, improve energy efficiency, and increase interactivity within modern living spaces.
+
+## Features
+- **E-Ink Displays**: Customizable digital art and dynamic information panels.
+- **Temperature Control**: Thermoelectric modules for zonal climate management.
+- **Soundproofing**: Active noise cancellation using piezoelectric materials.
+- **Augmented Reality Integration**: Interactive overlays for enhanced user experiences.
+- **Ambient Lighting**: Adaptive lighting based on user activity and time of day.
+
+## Methodology
+The development of Adaptive Smart Walls involves the integration of hardware and software components that work together to provide intelligent adaptability. The methodology includes:
+
+1. **Sensor Integration**: Various environmental sensors (temperature, light, sound) are used to gather real-time data.
+2. **Data Processing & AI Algorithms**: AI-driven models process the sensor data to predict and adapt the wall’s behavior.
+3. **IoT Communication**: Devices are interconnected through IoT frameworks, enabling seamless data exchange.
+4. **Smart Material Actuation**: Smart materials like electrochromic glass and E-Ink displays adjust in response to processed inputs.
+5. **User Interaction**: Touch and voice controls allow users to customize wall functionalities.
+6. **Performance Evaluation**: Continuous monitoring ensures optimal performance, energy efficiency, and user satisfaction.
+
+## Installation
+To install and set up Adaptive Smart Walls, follow these steps:
+
+1. **Hardware Setup**
+   - Install the necessary smart wall panels, sensors, and microcontrollers.
+   - Connect actuators and smart material interfaces.
+
+2. **Software Setup**
+   - Install the required dependencies:
+     ```sh
+     git clone https://github.com/your-repo/adaptive-smart-walls.git
+     cd adaptive-smart-walls
+     ```
+   - Ensure Python and necessary libraries are installed:
+     ```sh
+     pip install -r requirements.txt
+     ```
+   - Set up IoT communication protocols and configure the AI-based control system.
+
+3. **Configuration**
+   - Adjust environmental settings in the configuration files.
+   - Connect to a smart home hub or IoT network.
+
+4. **Testing & Calibration**
+   - Run initial calibration scripts to align sensors with the smart wall system:
+     ```sh
+     python calibrate.py
+     ```
+
+## Usage
+Once installed, the system can be used as follows:
+
+- **User Interface**: Control wall settings through a mobile app or web interface.
+- **Voice Commands**: Activate AI-powered automation with voice assistants.
+- **Adaptive Settings**: The system will automatically adjust based on environmental conditions.
+- **Manual Overrides**: Users can override AI settings via a touchscreen panel.
+
+To start the system:
+```sh
+python main.py
